@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        inGameUI.gameObject.SetActive(false);
+        //inGameUI.gameObject.SetActive(false);
     }
     private void Start()
     {
-        AnimationManager.Instance.ActivateLoadingGameUI();
+        //AnimationManager.Instance.ActivateLoadingGameUI();
     }
 
 }
