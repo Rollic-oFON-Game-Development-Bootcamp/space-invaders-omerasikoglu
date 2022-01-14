@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
         Bullet bullet = bulletTransform.GetComponent<Bullet>();
         bullet.SetIsFriendlyBullet(isFriendlyBullet);
-        bullet.SetReset(ResetPlayerShootTimer);
+        bullet.SetResetPlayerShootTimer(ResetPlayerShootTimer);
 
         return bullet;
     }
@@ -40,10 +40,9 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         //while player shooting
-        if (collision.CompareTag("Enemy") && isFriendlyBullet)
+        if (isFriendlyBullet && collision.CompareTag("Enemy"))
         {
             ResetPlayerShootTimer();
-            //TODO: ateþ bekleme süresini 0la
             Destroy(collision.attachedRigidbody.gameObject);
             Destroy(gameObject);
         }//two bullet hit
@@ -54,32 +53,34 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         //while enemy shooting
-        if (collision.CompareTag("Player") && !isFriendlyBullet)
+        if (!isFriendlyBullet && collision.CompareTag("Player"))
         {
-            Debug.Log("playerhit");
             Destroy(collision.attachedRigidbody.gameObject);
             Destroy(gameObject);
         }
         //garibim obstacle
         if (collision.CompareTag("Obstacle"))
         {
-            Debug.Log("obss");
+            if (isFriendlyBullet)
+            {
+                ResetPlayerShootTimer(); 
+            }
             collision.attachedRigidbody.GetComponent<Obstacle>().BulletHitMe();
             Destroy(gameObject);
         }
-      
     }
 
     private void Move()
     {
-        transform.position += isFriendlyBullet ? Vector3.forward * movementSpeed * Time.deltaTime : Vector3.back * movementSpeed * Time.deltaTime;
+        transform.position += isFriendlyBullet ? Vector3.forward * movementSpeed * Time.deltaTime : 
+            Vector3.back * movementSpeed * Time.deltaTime;
     }
 
     private void SetIsFriendlyBullet(bool isFriendlyBullet)
     {
         this.isFriendlyBullet = isFriendlyBullet;
     }
-    private void SetReset(Action Reset)
+    private void SetResetPlayerShootTimer(Action Reset)
     {
         this.ResetPlayerShootTimer = Reset;
     }
