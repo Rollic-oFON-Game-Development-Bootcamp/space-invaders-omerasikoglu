@@ -55,7 +55,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (Input.GetKeyDown(KeyCode.Space) && canShoot)
         {
             Debug.Log(bulletSpawnPos.localPosition.x);
-            Bullet.Create(bulletSpawnPos.localPosition, playerSettings.BulletLifetimeMax, false);
+            Bullet.Create(bulletSpawnPos.localPosition, playerSettings.BulletLifetimeMax, true,
+                () => { bulletLifeTimer = 0f; });
             bulletLifeTimer = playerSettings.BulletLifetimeMax;
 
         }

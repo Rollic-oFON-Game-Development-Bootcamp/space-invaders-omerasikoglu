@@ -5,27 +5,23 @@ using System;
 
 public class Bullet : MonoBehaviour
 {
-    public static Bullet Create(Vector3 spawnPosition, float bulletLifetime, bool isFriendlyBullet)
+    public static Bullet Create(Vector3 spawnPosition, float bulletLifetime, bool isFriendlyBullet, Action ResetPlayerShootTimer)
     {
-        Transform bulletTransform = Instantiate(GameAssets.Instance.pfBullet, spawnPosition, Quaternion.identity);
-        
+        Transform bulletTransform = isFriendlyBullet ? Instantiate(GameAssets.Instance.pfBullet, spawnPosition, Quaternion.identity) :
+           Instantiate(GameAssets.Instance.pfBullet, spawnPosition, Quaternion.identity);
+
         Bullet bullet = bulletTransform.GetComponent<Bullet>();
         bullet.SetIsFriendlyBullet(isFriendlyBullet);
+        bullet.SetReset(ResetPlayerShootTimer);
 
         return bullet;
     }
 
-    public event EventHandler OnBulletCreated;
+    private Action ResetPlayerShootTimer;
 
     private float lifeTime = 2f;
     private float movementSpeed = 10f;
     private bool isFriendlyBullet;
-
-
-    private void Start()
-    {
-        OnBulletCreated?.Invoke(this, EventArgs.Empty);
-    }
 
     private void Update()
     {
@@ -43,29 +39,49 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Enemy"))
+        //while player shooting
+        if (collision.CompareTag("Enemy") && isFriendlyBullet)
         {
+            ResetPlayerShootTimer();
             //TODO: ateþ bekleme süresini 0la
             Destroy(collision.attachedRigidbody.gameObject);
             Destroy(gameObject);
-        }
-
-        Obstacle obstacle = collision.attachedRigidbody.GetComponent<Obstacle>();
-        if (obstacle != null)
+        }//two bullet hit
+        if (collision.CompareTag("Bullet"))
         {
-            obstacle.BulletHitMe();
+            ResetPlayerShootTimer();
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+        //while enemy shooting
+        if (collision.CompareTag("Player") && !isFriendlyBullet)
+        {
+            Debug.Log("playerhit");
+            Destroy(collision.attachedRigidbody.gameObject);
+            Destroy(gameObject);
+        }
+        //garibim obstacle
+        if (collision.CompareTag("Obstacle"))
+        {
+            Debug.Log("obss");
+            collision.attachedRigidbody.GetComponent<Obstacle>().BulletHitMe();
+            Destroy(gameObject);
+        }
+      
     }
 
     private void Move()
     {
-        transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+        transform.position += isFriendlyBullet ? Vector3.forward * movementSpeed * Time.deltaTime : Vector3.back * movementSpeed * Time.deltaTime;
     }
 
     private void SetIsFriendlyBullet(bool isFriendlyBullet)
     {
         this.isFriendlyBullet = isFriendlyBullet;
+    }
+    private void SetReset(Action Reset)
+    {
+        this.ResetPlayerShootTimer = Reset;
     }
 
 }

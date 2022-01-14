@@ -884,6 +884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfObstacle (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4423009919143568259, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
 --- !u!4 &860961099 stripped
@@ -1010,7 +1014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=red><b><i>ada
+  m_text: <color=red><b><i>Press C and Space
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1053,7 +1057,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1730,6 +1734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfObstacle (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4423009919143568259, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
 --- !u!4 &1214464257 stripped
@@ -2034,11 +2042,11 @@ RectTransform:
   m_Father: {fileID: 1978482161}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 1, y: 1}
+  m_SizeDelta: {x: 200, y: 30}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1360199915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,7 +2099,7 @@ GameObject:
   - component: {fileID: 1413244364}
   m_Layer: 0
   m_Name: visual-body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2223,7 +2231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSettings: {fileID: 11400000, guid: 0db2d4609c5f08a4fa9ba95d498b408c, type: 2}
   sideMovementRoot: {fileID: 2140265486}
-  bulletSpawnPos: {fileID: 0}
+  bulletSpawnPos: {fileID: 1030907259}
   leftLimit: {fileID: 513941686}
   rightLimit: {fileID: 748342599}
 --- !u!54 &1502059810
@@ -2326,6 +2334,10 @@ PrefabInstance:
     - target: {fileID: 4423009919143568259, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
       propertyPath: m_Name
       value: pfObstacle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423009919143568259, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
@@ -2524,6 +2536,10 @@ PrefabInstance:
     - target: {fileID: 4423009919143568259, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
       propertyPath: m_Name
       value: pfObstacle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423009919143568259, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
@@ -3310,6 +3326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfObstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 4423009919143568259, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
 --- !u!33 &1184796815269744228
@@ -3531,7 +3551,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8917191640175379094}
   - component: {fileID: 6339813923651063922}
-  - component: {fileID: 3583455211583387072}
   m_Layer: 0
   m_Name: Invader (18)
   m_TagString: Enemy
@@ -3539,18 +3558,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3583455211583387072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3583455211583387071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fcee7dd2ea12ce4694b63c25046bea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &3721152862365110935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4423009919143568258, guid: 06af06a98d4c1aa40a3a0da7d106ca3a, type: 3}
@@ -3650,7 +3657,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8574832321713587248}
   - component: {fileID: 6540455027771070164}
-  - component: {fileID: 4360939758630302490}
   m_Layer: 0
   m_Name: Invader (20)
   m_TagString: Enemy
@@ -3658,18 +3664,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4360939758630302490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4360939758630302489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fcee7dd2ea12ce4694b63c25046bea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4536746473715604464
 Transform:
   m_ObjectHideFlags: 0
@@ -3694,7 +3688,6 @@ GameObject:
   m_Component:
   - component: {fileID: 160179319731805137}
   - component: {fileID: 3315392180252231989}
-  - component: {fileID: 5207240015040867577}
   m_Layer: 0
   m_Name: Invader (22)
   m_TagString: Enemy
@@ -3702,18 +3695,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5207240015040867577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5207240015040867576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fcee7dd2ea12ce4694b63c25046bea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5346683493649712145
 Transform:
   m_ObjectHideFlags: 0
@@ -3752,7 +3733,6 @@ GameObject:
   m_Component:
   - component: {fileID: 397258469559199807}
   - component: {fileID: 3006409867304368859}
-  - component: {fileID: 5762812516251524887}
   m_Layer: 0
   m_Name: Invader (19)
   m_TagString: Enemy
@@ -3760,18 +3740,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5762812516251524887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5762812516251524886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fcee7dd2ea12ce4694b63c25046bea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5771027592687332493
 Transform:
   m_ObjectHideFlags: 0
@@ -3858,7 +3826,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1737511452418175821}
   - component: {fileID: 3758061287766909353}
-  - component: {fileID: 5937475488099419237}
   m_Layer: 0
   m_Name: Invader (21)
   m_TagString: Enemy
@@ -3866,18 +3833,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5937475488099419237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5937475488099419236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fcee7dd2ea12ce4694b63c25046bea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &6101651078484269846
 MeshRenderer:
   m_ObjectHideFlags: 0
