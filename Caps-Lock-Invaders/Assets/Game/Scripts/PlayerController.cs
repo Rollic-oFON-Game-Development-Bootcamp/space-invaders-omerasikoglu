@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private Transform sideMovementRoot, bulletSpawnPos, leftLimit, rightLimit;
 
+    //[SerializeField] private Camera playerCamera;
+    //[SerializeField] private FollowMouseUI followMouseUI;
+
     private Vector2 inputDrag, previousMousePosition;
 
     private float leftLimitX => leftLimit.localPosition.x;
@@ -21,7 +24,24 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Awake()
     {
         bulletSpawnPos = transform.Find("bulletSpawnPoint");
+
+        //followMouseUI.OnZoomIn += FollowMouseUI_OnZoomIn;
+        //followMouseUI.OnZoomOut += FollowMouseUI_OnZoomOut;
     }
+
+    //private void FollowMouseUI_OnZoomOut(object sender, EventArgs e)
+    //{
+    //    playerCamera.fieldOfView = 80;
+    //    Debug.Log("out");
+
+    //}
+
+    //private void FollowMouseUI_OnZoomIn(object sender, EventArgs e)
+    //{
+    //    playerCamera.fieldOfView = 50;
+    //    Debug.Log("in");
+    //}
+
     private void Update()
     {
         Timers();
